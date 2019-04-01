@@ -1,0 +1,39 @@
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+/*
+table tr {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+*/
+
+table .selected{
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+table .selected:hover{
+  background-color: #007bff !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+table .selected-to-delete{
+  background-color: #dc3545;
+  color: white;
+  font-weight: bold;
+}
+
+table .selected-to-delete:hover{
+  background-color: #dc3545 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+table .not-selected{
+  background-color: white;
+  color: black;
+}

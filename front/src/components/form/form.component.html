@@ -1,0 +1,31 @@
+<form [formGroup]="studentForm">
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <input type="text" class="form-control" id="fname" placeholder="Enter First Name" formControlName="fname" [value]="studentToUpdate.fname">
+    <!--
+    <small style="color: red" *ngIf="student.fname.errors.required && student.fname.touched">{{this.getErrorMessage('First Name is')}}</small>
+    -->
+    </div>
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" formControlName="lname" [value]="studentToUpdate.lname">
+    <!--
+    <small style="color: red" *ngIf="student.lname.errors.required && student.lname.touched">{{this.getErrorMessage('Last Name is')}}</small>
+      -->
+  </div>
+  <div class="form-group">
+    <label for="section">Section</label>
+    <input type="text" class="form-control" id="section" maxlength="5" placeholder="Enter Section" formControlName="section" [value]="studentToUpdate.section">
+    <!--
+    <small style="color: red" *ngIf="student.section.errors.required && student.section.touched">{{this.getErrorMessage('Section is')}}</small>
+      -->
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="onAdd()" *ngIf="studentToUpdate.id == 0">Add</button>
+  <button type="button" class="btn btn-primary" (click)="onEdit()" *ngIf="studentToUpdate.id != 0">Edit</button>
+  <button type="reset" class="btn btn-secondary" (click)="onClear()" *ngIf="studentToUpdate.id == 0">Clear</button>
+  <button type="reset" class="btn btn-secondary" (click)="onClear()" *ngIf="studentToUpdate.id != 0">Cancel</button>
+  <button type="button" class="btn btn-danger" (click)="onDeleteAll()" id="deleteAll">Delete All</button>
+
+</form>
+

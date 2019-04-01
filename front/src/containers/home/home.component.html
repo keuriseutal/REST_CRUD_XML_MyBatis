@@ -1,0 +1,15 @@
+<app-form 
+(addedStudent)="addStudent($event)"
+(updatedStudent)="updateStudent($event)"
+(deleteAll)="deleteAll()"
+(deleteHighlight)="deleteHighlight()"
+[studentToUpdate] = "studentToUpdate"
+(refreshList)="refreshList()"
+></app-form>
+
+<app-list 
+[students]="students"
+(studentToUpdate)="passStudentInfoToForm($event)"
+(deletedStudent)="deleteStudent($event)"
+(searchValue)="getStudentBySearchValue($event)"
+></app-list>

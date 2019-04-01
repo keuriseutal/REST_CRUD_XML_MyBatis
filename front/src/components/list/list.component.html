@@ -1,0 +1,63 @@
+<span>
+  <div>
+    <input type="text" class="form-control" (input)="getStudentBySearchValue(search.value)" #search id="search" placeholder="Search in List">
+  </div>
+
+</span>
+
+<div style="text-align: center">Showing {{students.length}} result(s)</div>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Section</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of students; let i = index">
+      <td scope="row" style="width: 5%">{{i+1}}</td>
+      <td style="width: 5%">{{s.id}}</td>
+      <td style="width: 20%">{{s.fname}}</td>
+      <td style="width: 20%">{{s.lname}}</td>
+      <td style="width: 20%">{{s.section}}</td>
+      <td style="width: 20%">
+        <button type="button" class="btn btn-light" (click)="passStudentInfoToForm(s, i)" *ngIf="!s.isToDelete">
+          <i class="material-icons">
+            edit
+          </i>
+        </button>
+        <button type="button" class="btn btn-light" (click)="deletingStudent(s, i)" *ngIf="!s.isToDelete">
+          <i class="material-icons">
+            delete
+          </i>
+        </button>
+        <span *ngIf="s.isToDelete">Delete Student?&nbsp;&nbsp;&nbsp;</span>
+
+        <button type="button" class="btn btn-secondary" (click)="cancelDeleteStudent(s, i)" *ngIf="s.isToDelete">
+          <i class="material-icons">
+            cancel
+          </i>
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="deleteStudent(s, i)" *ngIf="s.isToDelete">
+          <i class="material-icons">
+            check_circle
+          </i>
+        </button>
+        
+        <!--
+          <button type="button" class="btn btn-light">
+            <i class="material-icons">
+              info
+            </i>
+          </button>
+          -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+
